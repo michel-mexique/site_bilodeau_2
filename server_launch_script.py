@@ -59,10 +59,7 @@ if __name__ == '__main__':
         # Append at the end of file
         f.write("\n")
         f.write("".join([
-            """
-            ALLOWED_HOSTS += ['", domains[0], "', '", domains[1],"']
-            DATABASES['default']['NAME'] = '/home/ubuntu/guides_disk/db.sqlite3'
-            """
+            "ALLOWED_HOSTS += ['", domains[0], "', '", domains[1],"']"
             ]))
         f.close()
     wait()
