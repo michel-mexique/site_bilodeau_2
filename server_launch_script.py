@@ -30,7 +30,9 @@ if __name__ == '__main__':
     show('UPDATE')
     cmd('sudo apt-get update')
     wait()
-
+    
+    cmd('sudo apt-get install libpq-dev python-dev')
+    
     show('INSTALLATION DE PIP')
     cmd('sudo apt install python3-pip -y')
     wait()
