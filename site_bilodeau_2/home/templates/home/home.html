@@ -1,0 +1,331 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center flex-column m-0 p-0" style="height: 100%">  
+    <div style="margin-bottom: 200px" class=""></div>  
+
+    <div id="top" class="container p-0 position-relative" data-aos="fade-up" style="">
+			{% if messages %}
+				<div class="alert alert-success mx-5" role="alert">
+			    {% for message in messages %}
+			      <p>{{ message }}<p>
+			    {% endfor %}
+				</div>
+			{% endif %}						
+      <div class="row justify-content-center fixed" data-aos="fade-up" data-aos-delay="150">
+        {% if is_mobile != True %}
+        <div class="col-xl-6 col-lg-8"> 
+        {% endif %}
+        {% if is_mobile == True %}
+        <div class="col-xl-6 col-lg-8 m-4">
+        {% endif %}                 
+          <img src="{% static 'img/home_logo.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+      <!--
+      {% if is_mobile != True %}
+      {% endif %}
+
+      {% if is_mobile == True %}
+		  {% endif %}
+      -->
+    </div>
+
+    <br><br>
+
+    
+    <div class="mt-5 d-block" data-aos="zoom-in" style="width: 100vw; position: relative;">
+
+      {% if is_mobile != True %}
+      <div class="container-fluid" style="background-color: #121212;">
+
+        <div class="col-md-12" style="padding-left: 12%; padding-right: 12%; color:#ffc451; ">
+          <div class="row py-4" style="">
+
+            <div class="col-sm">
+              <div class="card home_card_design bg-transparent border-0">                
+                <h5 class="card-header border-0 text-center" style="font-size: 25px; font-family: DejaVuSerif; white-space: nowrap;">
+                  - {{ texte_accueil.1A }} -
+                </h5>
+                <div class="card-body border-0">
+                  <p class="card-text text-justify" style="color: #ffffff; font-family: DejaVuSerif;">
+                    {{ texte_accueil.1B }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-2" style="border-left: solid thin; color: #ffc451;"></div>
+
+            <div class="col-sm">
+              <div class="card home_card_design bg-transparent border-0">                
+                <h5 class="card-header border-0 text-center" style="font-size: 25px; font-family: DejaVuSerif;white-space: nowrap;">
+                  - {{ texte_accueil.2A }} -
+                </h5>
+                <div class="card-body border-0">
+                  <p class="card-text text-justify" style="color: #ffffff; font-family: DejaVuSerif;">
+                    {{ texte_accueil.2B }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-2" style="border-left: solid thin; color: #ffc451;"></div>
+
+            <div class="col-sm">
+              <div class="card home_card_design bg-transparent border-0">                
+                <h5 class="card-header border-0 text-center" style="font-size: 25px; font-family: DejaVuSerif;white-space: nowrap;">
+                  - {{ texte_accueil.3A }} -
+                </h5>
+                <div class="card-body border-0">
+                  <p class="card-text text-justify" style="color: #ffffff; font-family: DejaVuSerif;">
+                    {{ texte_accueil.3B }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      {% endif %}
+
+      {% if is_mobile == True %}
+
+      <!-- Tab links -->
+      <div class="tabm d-flex justify-content-center" style="font-size: 3vw;">
+        <button class="tablinks col-4" onclick="openCity(event, 'London')" id="defaultOpen">{{ texte_accueil.1A }}</button>
+        <button class="tablinks col-4" onclick="openCity(event, 'Paris')">{{ texte_accueil.2A }}</button>
+        <button class="tablinks col-4" onclick="openCity(event, 'Tokyo')">{{ texte_accueil.3A }}</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="London" class="tabcontentm px-3 py-2">
+        <p>{{ texte_accueil.1B }}</p>
+      </div>
+
+      <div id="Paris" class="tabcontentm px-3 py-2">
+        <p>{{ texte_accueil.2B }}</p>
+      </div>
+
+      <div id="Tokyo" class="tabcontentm px-3 py-2">
+        <p>{{ texte_accueil.3B }}</p>
+      </div>
+
+      <script type="text/javascript">
+        function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontentm, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontentm = document.getElementsByClassName("tabcontentm");
+        for (i = 0; i < tabcontentm.length; i++) {
+          tabcontentm[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+      </script>
+
+      {% endif %}
+
+      <div class="py-5 d-block" style="">
+
+  
+          <div class="container-fluid">
+            <div class="row pt-2 pb-3">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-8">
+                <h3 class="text-center text-white">Discutons ensemble de vos objectifs.</h3>
+              </div>
+              <div class="col-md-2">
+              </div>
+            </div>
+          </div>
+
+        <div>
+        <a class="btn btn-primary btn-lg btn-block rounded-0" style="background-color: #ffc451;
+                                                                     color: black;
+                                                                     border-color: #ffc451;
+                                                                     margin: auto;
+                                                                     white-space: nowrap;
+                                                                     {% if is_mobile == True %}
+                                                                     font-size: 80%;
+                                                                     width: 50vw;
+                                                                     {% endif %}
+                                                                     {% if is_mobile != True %}
+                                                                     width: 33vw;
+                                                                     {% endif %}"
+        href="{% url 'home-home' %}#contact">Parler à un conseiller</a> 
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-3">
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="" class="mt-1" style="background-image: url('{% static 'img/team-pic.jfif' %}'); background-size:cover; width: 100%;">
+      <div class="container" data-aos="" style="padding-top: 20%">
+        
+      </div>
+    </section>
+    <!-- End Cta Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="" class="md-1 mt-1" style="background-color: #121212;">
+      <div class="container " data-aos="zoom-in">
+        <div class="text-center text-light">
+          <h2 class="">«  Établir une relation de confiance avec nos clients sur le long terme : c’est notre priorité pour vous accompagner dans la réalisation de vos objectifs financiers.  »</h2>
+          <br>
+          <h2 style="font-size: 1.5em; color: #ffc451;">- Richard Bilodeau, président</h2>
+        </div>
+      </div>
+    </section><!-- End Cta Section -->
+
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients mt-5" >
+      <div class="container" data-aos="zoom-in">
+      		<div class="section-title">
+          <h2>Nos partenaires</h2>
+        </div>
+        
+        <div class="owl-carousel clients-carousel">
+          {% for i in clients_urls %}
+          <img src="{{i}}" style="" alt="">
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+    <!-- End Clients Section -->
+    
+    <!-- ======= Cta Section ======= -->
+    <section id="" class="py-1">
+      <div class="container" data-aos="zoom-in">
+        <div class="text-center bg-white">
+          <h3>Pour tous vos besoins en formation et fiscalité, nous vous recommandons notre compagnie soeur :</h3><br>
+          <a href="http://capitalfiscalite.com/"><img src="{% static 'img/features.png' %}"></a>
+        </div>
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>NOUS CONTACTER</p>
+        </div>
+
+        <div>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.2670642314547!2d-71.25752481986173!3d46.79904495150642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897efd7f919eb%3A0x7bd23b6bed9e0b25!2sBilodeau%20-%20Gestion%20de%20patrimoine!5e0!3m2!1sfr!2sca!4v1604956169955!5m2!1sfr!2sca" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4 pl-2">
+            <div class="info">
+              <div class="address">
+                <i><span class="material-icons">chair</span></i>
+                <h4>Adresse : </h4>
+                <p>1265 Boulevard Charest Ouest Suite 1140, Québec, QC G1N 2C9</p>
+              </div>
+
+              <div class="email">
+                <i><span class="material-icons">mail</span></i>
+                <h4>Email : </h4>
+                <p>info@bilodeau.co</p>
+              </div>
+
+              <div class="phone">
+                <i><span class="material-icons">call</span></i>
+                <h4>Téléphone : </h4>
+                <p>1 (877) 558-2037</p>
+              </div>
+
+              <!--
+              <div class="mt-5 border rounded mx-3">
+                <img class="p-1" src="{% static 'img/building.png' %}" style="width: 100%; height: auto;">
+                <h5 class="text-center pt-1" style="font-size: 1em;">Nos bureaux du boulevard Charest</h5>
+              </div>
+              -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+          	<h1>Formulaire de contact</h1>
+												<form method="post" action="{% url 'home-home' %}">
+												    {% csrf_token %}
+												    {{ form|crispy }}
+												      <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #ffc451; color: black; border-color: #ffc451;">Envoyer</button>				
+												</form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- End Contact Section -->
+
+<!-- ======= Team Section ======= -->    
+<section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Notre équipe</h2>
+        </div>
+
+        <div class="row">
+
+          {% for member in team %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member rounded-0 shadow-none border border-secondary" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="{{ member.image.url }}" class="img-fluid" alt="" 
+                style=" float: left; object-fit: cover;">
+                <div class="social">
+                  <a href="{{ member.lienlinkedin }}"><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{ member.name }}</h4>
+                <span>{{ member.title }}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+<!-- End Team Section -->
+</main><!-- End #main -->
+
+{% endblock page_content %}
