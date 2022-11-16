@@ -186,27 +186,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
 EMAIL_HOST = 'smtp.gmail.com' # new
 
 
-EMAIL_HOST_USER = 'agagnon729@gmail.com' # new
-EMAIL_HOST_PASSWORD = 'lncu sblv yppt klpr'#os.environ['EMAIL_HOST_PASSWORD'] # new
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER'] # new
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD'] # new
 EMAIL_PORT = 587 # new
 EMAIL_USE_TLS = True # new
 
-"""
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_S3_REGION_NAME = 'us-east-2'
-"""
-
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-
-AWS_ACCESS_KEY_ID = 'AKIAUGDCLOLVXG3GTGMV'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bucket-6j6w33'
 
 # SI CE PARAMETRE EST True, LE URL SERVI PAR BOT03 CONTIENT UN LIEN 
 # AVEC LA AWS ACCESS KEY ID, DONNANT UN LIEN INVALIDE DANS CERTAINES
@@ -219,7 +208,11 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 USE_TZ = True
 TIME_ZONE = 'EST'
 
-"""
 RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+
+"""
+ENVIRONNEMENT VARIABLES :
+
+
 """
