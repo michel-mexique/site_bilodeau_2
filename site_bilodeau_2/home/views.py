@@ -67,14 +67,10 @@ def infolettre_inscription(request):
 
 def redirection(request, page_de_redirection):
     page_list = PageDeRedirection.objects.all()
-
     for i in page_list:
-        print("EEEEEEEEEEE", i.home_url)
         if i.home_url == page_de_redirection:
             context = {'lien' : i.url,
                        'titre' : i.home_url,
                       }
-            return render(request, 'home/page_de_redirection.html', context)
-
-    
+            return render(request, 'home/page_de_redirection.html', context)    
     raise Http404('Bad URL')
